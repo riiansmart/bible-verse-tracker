@@ -12,7 +12,6 @@ import { FavoriteService } from './service/favorite.service';
 export class AppComponent implements OnInit {
   verses: any[] = [];
   filteredVerses: any[] = [];
-  filterText: string = '';  // For storing the input filter text
   selectedVerse: any = null; // To store selected verse
   showFilter: boolean = false; // Initializes showFilter to false to keep the filter input hidden initially
 
@@ -44,17 +43,6 @@ export class AppComponent implements OnInit {
   // Show the verse text when clicked
   showVerseText(verse: any): void {
     this.selectedVerse = verse;
-  }
-
-  // Filter verses by book name
-  filterVerses(): void {
-    if (this.filterText) {
-      this.filteredVerses = this.verses.filter((verse) =>
-        verse.book.toLowerCase().includes(this.filterText.toLowerCase())
-      );
-    } else {
-      this.filteredVerses = this.verses;  // Reset filter
-    }
   }
 
   // Navigate to View Favorites page
