@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BibleVerseService } from './service/bible-verse.service';
 import { FavoriteService } from './service/favorite.service';
 
@@ -13,10 +14,12 @@ export class AppComponent implements OnInit {
   filteredVerses: any[] = [];
   filterText: string = '';  // For storing the input filter text
   selectedVerse: any = null; // To store selected verse
+  showFilter: boolean = false; // Initializes showFilter to false to keep the filter input hidden initially
 
   constructor(
     private bibleVerseService: BibleVerseService,
-    private favoriteService: FavoriteService
+    private favoriteService: FavoriteService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +60,10 @@ export class AppComponent implements OnInit {
   // Navigate to View Favorites page (you may want to implement routing for this)
   viewFavorites(): void {
     // Implement navigation logic to the favorites page (this may require Angular Router)
+  }
+
+  goToCreateBibleVerse(): void {
+    this.router.navigate(['/bible-verse-create']); // Navigates to the 'bible-verse-create' component
   }
 
   // Navigate to Edit Selected Verse page
