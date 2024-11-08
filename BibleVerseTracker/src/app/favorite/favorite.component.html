@@ -1,1 +1,16 @@
-<p>favorite works!</p>
+<!-- src/app/favorite/favorite.component.html -->
+<div class="favorite-container">
+    <h3>Favorite Bible Verses</h3>
+    <div *ngFor="let verse of favoriteVerses">
+      <div class="verse-item">
+        <span>{{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }} - {{ verse.verseText }}</span>
+        <button class="btn btn-danger" (click)="removeFavorite(verse.verseId)">Remove from Favorites</button>
+      </div>
+    </div>
+    
+    <!-- Assuming you have a list of Bible verses, you can display them here -->
+    <div *ngIf="!favoriteVerses.length">
+      <p>No favorite verses yet. Add some!</p>
+    </div>
+  </div>
+  

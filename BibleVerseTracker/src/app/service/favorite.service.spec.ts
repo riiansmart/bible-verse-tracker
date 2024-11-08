@@ -1,16 +1,27 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { FavoriteService } from '../service/favorite.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class FavoriteService {
+  private apiUrl = 'http://localhost:3000/favorites';  // Update with API URL
 
-describe('FavoriteService', () => {
-  let service: FavoriteService;
+  constructor(private http: HttpClient) {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(FavoriteService);
-  });
+  // Get all favorite Bible verses
+  getFavorites(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  // Add a Bible verse to favorites
+  addFavorite(verseId: number): Observable<any> {
+    return this.http.post(this.apiUrl, { verseId });
+  }
+
+  // Remove a Bible verse from favorites
+  removeFavorite(verseId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${verseId}`);
+  }
+}
