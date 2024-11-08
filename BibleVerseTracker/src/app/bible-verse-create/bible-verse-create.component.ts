@@ -21,6 +21,17 @@ export class BibleVerseCreateComponent {
   createVerse(): void {
     this.bibleVerseService.createVerse(this.newVerse).subscribe(() => {
       this.router.navigate(['/bible-verse-list']);
+      this.resetForm(); // Optionally reset the form after successful submission
     });
+  }
+
+  // Reset the form fields after the verse is created
+  resetForm(): void {
+    this.newVerse = {
+      book: '',
+      chapter: 0,
+      verseNumber: 0,
+      verseText: ''
+    };
   }
 }

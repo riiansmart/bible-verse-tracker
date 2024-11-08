@@ -7,18 +7,19 @@ dotenv.config();
 
 const app = express();
 const cors = require('cors');
-
-app.use(express.json());
-
-app.use('/api', bibleVerseRoutes);
-app.use('/api', favoriteRoutes);
+const PORT = process.env.PORT || 3000;
 
 // Enable CORS for all routes
 app.use(cors({
   origin: 'http://localhost:4200' // Replace with your frontend URL
 }));
 
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
+
+// Register API routes with /api prefex
+app.use('/api', bibleVerseRoutes);
+app.use('/api', favoriteRoutes);
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
