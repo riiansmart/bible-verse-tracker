@@ -1,16 +1,32 @@
 <!-- src/app/favorite/favorite.component.html -->
 <div class="favorite-container">
-    <h3>Favorite Bible Verses</h3>
-    <div *ngFor="let verse of favoriteVerses">
-      <div class="verse-item">
-        <span>{{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }} - {{ verse.verseText }}</span>
-        <button class="btn btn-danger" (click)="removeFavorite(verse.verseId)">Remove from Favorites</button>
-      </div>
-    </div>
-    
-    <!-- Assuming you have a list of Bible verses, you can display them here -->
-    <div *ngIf="!favoriteVerses.length">
-      <p>No favorite verses yet. Add some!</p>
+  <h3>Favorite Bible Verses</h3>
+
+  <!-- Show loading spinner while favorites are being loaded -->
+  <div *ngIf="isLoading" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <!-- Display error message if there is any -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Display success message if a verse is successfully added or removed -->
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <!-- Favorite verses list -->
+  <div *ngFor="let verse of favoriteVerses">
+    <div class="verse-item">
+      <span>{{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }} - {{ verse.verseText }}</span>
+      <button class="btn btn-danger" (click)="removeFavorite(verse.verseId)">Remove from Favorites</button>
     </div>
   </div>
-  
+
+  <!-- No favorite verses message -->
+  <div *ngIf="!favoriteVerses.length">
+    <p>No favorite verses yet. Add some!</p>
+  </div>
+</div>
