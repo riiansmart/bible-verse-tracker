@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoriteService } from '../service/favorite.service.spec';
+import { FavoriteService } from '../service/favorite.service';
 import { BibleVerseService } from '../service/bible-verse.service';  
 
 @Component({

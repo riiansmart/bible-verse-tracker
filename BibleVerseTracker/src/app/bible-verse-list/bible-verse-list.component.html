@@ -1,27 +1,2 @@
-<div class="container">
-    <h2>Bible Verses</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Book</th>
-          <th>Chapter</th>
-          <th>Verse</th>
-          <th>Text</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let verse of verses">
-          <td>{{ verse.book }}</td>
-          <td>{{ verse.chapter }}</td>
-          <td>{{ verse.verseNumber }}</td>
-          <td>{{ verse.verseText }}</td>
-          <td>
-            <button class="btn btn-primary" [routerLink]="['/bible-verse-update', verse.id]">Edit</button>
-            <button class="btn btn-danger" (click)="deleteVerse(verse.id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
   
