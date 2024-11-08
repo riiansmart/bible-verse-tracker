@@ -7,7 +7,7 @@ const router = Router();
 router.get('/favorites', getFavorites);
 
 // POST new favorite
-router.post('/favorites', addFavorite);
+router.post('/api/favorites', addFavorite);
 
 // DELETE favorite by ID
 router.delete('/favorites/:id', deleteFavorite);

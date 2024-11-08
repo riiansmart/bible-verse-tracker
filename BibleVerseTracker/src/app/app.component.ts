@@ -57,9 +57,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // Navigate to View Favorites page (you may want to implement routing for this)
+  // Navigate to View Favorites page
   viewFavorites(): void {
-    // Implement navigation logic to the favorites page (this may require Angular Router)
+    this.router.navigate(['/favorites']);  // Navigates to the favorites component
   }
 
   goToCreateBibleVerse(): void {
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
   // Navigate to Edit Selected Verse page
   editVerse(): void {
     if (this.selectedVerse) {
-      // Implement navigation to edit page
+      this.router.navigate(['/bible-verse-update', this.selectedVerse.verseId]); // Navigates to the update page with verseId as a parameter
     } else {
       alert('Please select a verse to edit.');
     }

@@ -4,13 +4,15 @@ import { BibleVerseListComponent } from './bible-verse-list/bible-verse-list.com
 import { BibleVerseCreateComponent } from './bible-verse-create/bible-verse-create.component';
 import { BibleVerseUpdateComponent } from './bible-verse-update/bible-verse-update.component';
 import { BibleVerseDeleteComponent } from './bible-verse-delete/bible-verse-delete.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'bible-verse-list', component: BibleVerseListComponent },
   { path: 'bible-verse-create', component: BibleVerseCreateComponent },
   { path: 'bible-verse-update/:id', component: BibleVerseUpdateComponent },
-  { path: 'bible-verse-delete', component: BibleVerseDeleteComponent}
+  { path: 'bible-verse-delete', component: BibleVerseDeleteComponent},
+  { path: 'favorites', component: FavoriteComponent }
 ];
 
 @NgModule({
