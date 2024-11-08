@@ -8,6 +8,7 @@ import { BibleVerseListComponent } from './bible-verse-list/bible-verse-list.com
 import { BibleVerseCreateComponent } from './bible-verse-create/bible-verse-create.component';
 import { BibleVerseUpdateComponent } from './bible-verse-update/bible-verse-update.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { BibleVerseDeleteComponent } from './bible-verse-delete/bible-verse-delete.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
     BibleVerseListComponent,
     BibleVerseCreateComponent,
     BibleVerseUpdateComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    BibleVerseDeleteComponent,
   ],
   imports: [
     BrowserModule,
