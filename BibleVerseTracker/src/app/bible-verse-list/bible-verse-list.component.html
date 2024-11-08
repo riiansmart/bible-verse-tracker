@@ -1,2 +1,24 @@
-
+<div class="container">
+    <h2>Bible Verse List</h2>
+  
+    <!-- Show error message if any -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Show loading spinner while data is being fetched -->
+    <div *ngIf="isLoading" class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  
+    <!-- List of Bible Verses -->
+    <ul class="list-group">
+      <li *ngFor="let verse of verses" class="list-group-item">
+        {{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }} - {{ verse.verseText }}
+        <button class="btn btn-danger btn-sm float-right" (click)="deleteVerse(verse.id)">
+          Delete
+        </button>
+      </li>
+    </ul>
+  </div>
   
