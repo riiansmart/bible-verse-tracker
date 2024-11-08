@@ -3,6 +3,7 @@ import { BibleVerseService } from '../service/bible-verse.service';
 
 @Component({
   selector: 'app-bible-verse-list',
+  standalone: false,
   templateUrl: './bible-verse-list.component.html',
   styleUrls: ['./bible-verse-list.component.scss']
 })

@@ -1,1 +1,23 @@
-<p>bible-verse-update works!</p>
+<div class="container">
+    <h2>Edit Bible Verse</h2>
+    <form (ngSubmit)="updateVerse()">
+      <div class="form-group">
+        <label for="book">Book</label>
+        <input type="text" class="form-control" id="book" [(ngModel)]="verse.book" name="book" required>
+      </div>
+      <div class="form-group">
+        <label for="chapter">Chapter</label>
+        <input type="number" class="form-control" id="chapter" [(ngModel)]="verse.chapter" name="chapter" required>
+      </div>
+      <div class="form-group">
+        <label for="verseNumber">Verse</label>
+        <input type="number" class="form-control" id="verseNumber" [(ngModel)]="verse.verseNumber" name="verseNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="verseText">Verse Text</label>
+        <textarea class="form-control" id="verseText" [(ngModel)]="verse.verseText" name="verseText" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+  
