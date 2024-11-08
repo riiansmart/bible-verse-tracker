@@ -1,18 +1,22 @@
 <div class="container">
-    <h3>Delete a Bible Verse</h3>
-  
-    <!-- List of Bible Verses -->
-    <ul class="list-group">
-      <li *ngFor="let verse of verses" class="list-group-item">
-        <span (click)="selectVerse(verse.verseId)" 
-              [ngClass]="{'selected': verse.verseId === selectedVerseId}">
-          {{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }} - {{ verse.verseText }}
-        </span>
-      </li>
-    </ul>
-  
-    <!-- Delete Button -->
-    <button class="btn btn-danger" (click)="deleteBibleVerse()" 
-            [disabled]="!selectedVerseId">Delete</button>
+  <h3>Delete a Bible Verse</h3>
+
+  <!-- Display error message if any -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
   </div>
-  
+
+  <!-- List of Bible Verses -->
+  <ul class="list-group">
+    <li *ngFor="let verse of verses" class="list-group-item">
+      <span (click)="selectVerse(verse.verseId)" 
+            [ngClass]="{'selected': verse.verseId === selectedVerseId}">
+        {{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }} - {{ verse.verseText }}
+      </span>
+    </li>
+  </ul>
+
+  <!-- Delete Button -->
+  <button class="btn btn-danger" (click)="deleteBibleVerse()" 
+          [disabled]="!selectedVerseId">Delete</button>
+</div>
