@@ -1,8 +1,104 @@
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+  }
+}
+
+.alert-danger {
+  background-color: #fff5f5;
+  border-color: #fc8181;
+  color: #c53030;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.list-group {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  .list-group-item {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    &:hover {
+      background-color: #fff5f5;
+      border-left-color: #dc3545;
+    }
+
+    span {
+      flex: 1;
+      margin-right: 1rem;
+      color: #495057;
+      
+      // Truncate long verse text
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-danger {
+      transition: all 0.2s ease;
+      background-color: #dc3545;
+      border: none;
+      min-width: 80px;
+      
+      &:hover {
+        background-color: #c82333;
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      // Add a subtle shake animation on hover
+      &:hover {
+        animation: shake 0.5s ease-in-out;
+      }
+    }
+  }
+}
+
+// Shake animation for delete button
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+// Selected state styles
 .selected {
-    font-weight: bold;
-    color: #007bff;
-  }
-  
-  button {
-    margin-top: 20px;
-  }
+  font-weight: 600;
+  color: #2c3e50 !important;
+  background-color: #e9ecef;
+}
+
+// Custom scrollbar for long lists
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

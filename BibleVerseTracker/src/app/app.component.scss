@@ -15,6 +15,35 @@
 
 /* Style for selected effect */
 .bible-verse-selected {
-  background-color: #e0f7fa; /* Distinctive background for selected item */
-  font-weight: bold;
+  font-weight: bolder;
 }
+
+.list-group {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  .list-group-item {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    &:hover {
+      background-color: #effdff;
+      border-left-color: #07aac0;
+    }
+
+    span {
+      flex: 1;
+      margin-right: 1rem;
+      
+      // Truncate long verse text
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+
