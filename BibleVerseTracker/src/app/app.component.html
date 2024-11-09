@@ -11,23 +11,17 @@
 
       <!-- Bible Verses List -->
       <ul class="list-group">
-        <li *ngFor="let verse of filteredVerses" class="list-group-item d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <!-- -------------------------------------------------- -->
-            <!-- TO DO FOR NEXT MILESTONE -->
-            <!-- Favorite Button -->
-             <!-- <button class="btn btn-sm btn-warning me-2" (click)="addToFavorites(verse)">
-              &#9733; Favorite
-            </button> -->
-            <!-- -------------------------------------------------- -->
+        <li *ngFor="let verse of filteredVerses"
+          class="list-group-item d-flex justify-content-between align-items-center bible-verse-item"
+          [ngClass]="{'bible-verse-selected': verse.showText}" (click)="verse.showText = !verse.showText">
 
-            
-
+          <div>
             <!-- Bible Verse Info as Collapsible -->
-            <span (click)="verse.showText = !verse.showText" class="cursor-pointer">
+            <span>
               {{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }}
             </span>
           </div>
+
           <!-- Collapsible Verse Text -->
           <div *ngIf="verse.showText" class="mt-2">
             <div class="alert alert-info">
@@ -36,10 +30,17 @@
           </div>
         </li>
       </ul>
+      <!-- -------------------------------------------------- -->
+      <!-- TO DO FOR NEXT MILESTONE -->
+      <!-- Favorite Button -->
+      <!-- <button class="btn btn-sm btn-warning me-2" (click)="addToFavorites(verse)">
+        &#9733; Favorite
+      </button> -->
+      <!-- -------------------------------------------------- -->
 
       <!-- Buttons at the bottom -->
       <div class="d-flex justify-content-between mt-4">
-        
+
         <!-- <button class="btn btn-secondary" (click)="viewFavorites()">View Favorites</button> -->
         <button class="btn btn-success" (click)="goToCreateBibleVerse()">Add a Bible Verse</button>
         <button class="btn btn-warning" (click)="goToEditBibleVerse()">Edit Verse</button>

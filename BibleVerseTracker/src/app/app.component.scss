@@ -2,3 +2,19 @@
     font-size: 1.5rem;
     font-weight: bold;
   }
+
+/* Style for hover effect */
+.bible-verse-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bible-verse-item:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+}
+
+/* Style for selected effect */
+.bible-verse-selected {
+  background-color: #e0f7fa; /* Distinctive background for selected item */
+  font-weight: bold;
+}
