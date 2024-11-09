@@ -13,10 +13,15 @@
       <ul class="list-group">
         <li *ngFor="let verse of filteredVerses" class="list-group-item d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
+            <!-- -------------------------------------------------- -->
+            <!-- TO DO FOR NEXT MILESTONE -->
             <!-- Favorite Button -->
-            <button class="btn btn-sm btn-warning me-2" (click)="addToFavorites(verse)">
+             <!-- <button class="btn btn-sm btn-warning me-2" (click)="addToFavorites(verse)">
               &#9733; Favorite
-            </button>
+            </button> -->
+            <!-- -------------------------------------------------- -->
+
+            
 
             <!-- Bible Verse Info as Collapsible -->
             <span (click)="verse.showText = !verse.showText" class="cursor-pointer">
@@ -34,10 +39,11 @@
 
       <!-- Buttons at the bottom -->
       <div class="d-flex justify-content-between mt-4">
-        <button class="btn btn-secondary" (click)="viewFavorites()">View Favorites</button>
+        
+        <!-- <button class="btn btn-secondary" (click)="viewFavorites()">View Favorites</button> -->
         <button class="btn btn-success" (click)="goToCreateBibleVerse()">Add a Bible Verse</button>
         <button class="btn btn-warning" (click)="goToEditBibleVerse()">Edit Verse</button>
-        <button class="btn btn-danger" (click)="deleteVerse()">Delete Selected Verse</button>
+        <button class="btn btn-danger" (click)="goToDeleteBibleVerse()">Delete Verse</button>
       </div>
     </div>
   </div>

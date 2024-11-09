@@ -56,18 +56,11 @@ export class AppComponent implements OnInit {
 
   // Navigate to Edit Selected Verse page
   goToEditBibleVerse(): void {
-      this.router.navigate(['/bible-verse-update']); // Navigates to the update page with verseId as a parameter
+      this.router.navigate(['/bible-verse-update']); // Navigates to the update page
   }
 
   // Delete the selected verse
-  deleteVerse(): void {
-    if (this.selectedVerse) {
-      this.bibleVerseService.deleteVerse(this.selectedVerse.verseId).subscribe(() => {
-        alert('Verse deleted!');
-        this.loadBibleVerses();  // Reload the verses
-      });
-    } else {
-      alert('Please select a verse to delete.');
-    }
+  goToDeleteBibleVerse(): void {
+    this.router.navigate(['/bible-verse-delete']); // Navigate to the delete page
   }
 }
