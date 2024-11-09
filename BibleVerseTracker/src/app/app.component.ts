@@ -55,12 +55,8 @@ export class AppComponent implements OnInit {
   }
 
   // Navigate to Edit Selected Verse page
-  editVerse(): void {
-    if (this.selectedVerse) {
-      this.router.navigate(['/bible-verse-update', this.selectedVerse.verseId]); // Navigates to the update page with verseId as a parameter
-    } else {
-      alert('Please select a verse to edit.');
-    }
+  goToEditBibleVerse(): void {
+      this.router.navigate(['/bible-verse-update']); // Navigates to the update page with verseId as a parameter
   }
 
   // Delete the selected verse

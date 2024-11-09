@@ -1,52 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { BibleVerseService } from '../service/bible-verse.service';
 
 @Component({
   selector: 'app-bible-verse-update',
-  standalone: false,
   templateUrl: './bible-verse-update.component.html',
   styleUrls: ['./bible-verse-update.component.scss']
 })
 export class BibleVerseUpdateComponent implements OnInit {
-  verse: any = { book: '', chapter: 0, verseNumber: 0, verseText: '' };
-  isLoading = true;  // Flag for loading state
-  errorMessage: string | null = null;  // To store any errors
-  successMessage: string | null = null; // For success message
+  bibleVerses: any[] = [];
+  selectedVerse: any = null; // Holds the verse being edited
+  errorMessage: string | null = null;
+  successMessage: string | null = null;
 
-  constructor(
-    private bibleVerseService: BibleVerseService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private bibleVerseService: BibleVerseService) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.bibleVerseService.getVerseById(id).subscribe(
+    this.loadBibleVerses();
+  }
+
+  loadBibleVerses(): void {
+    this.bibleVerseService.getAllVerses().subscribe(
       data => {
-        this.verse = data;
-        this.isLoading = false;
+        this.bibleVerses = data;
       },
       error => {
-        this.isLoading = false;
-        this.errorMessage = 'Failed to load the Bible verse. Please try again later.';
-        console.error('Error loading verse:', error);
+        this.errorMessage = 'Failed to load Bible verses. Please try again later.';
+        console.error('Error loading verses:', error);
       }
     );
   }
 
-  updateVerse(): void {
-    if (!this.verse.book || !this.verse.chapter || !this.verse.verseNumber || !this.verse.verseText) {
-      return;  // Ensure no empty fields are submitted
-    }
+  loadVerseForEditing(verse: any): void {
+    this.selectedVerse = { ...verse }; // Copy to avoid direct reference
+  }
 
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.bibleVerseService.updateVerse(id, this.verse).subscribe(
+  updateVerse(): void {
+    if (!this.selectedVerse) return;
+
+    this.bibleVerseService.updateVerse(this.selectedVerse.verseId, this.selectedVerse).subscribe(
       () => {
         this.successMessage = 'Verse updated successfully!';
-        setTimeout(() => {
-          this.router.navigate(['/bible-verse-list']);
-        }, 2000);  // Redirect after 2 seconds
+        this.loadBibleVerses(); // Reload verses to reflect updates
+        this.selectedVerse = null; // Clear form after update
       },
       error => {
         this.errorMessage = 'Failed to update the Bible verse. Please try again later.';

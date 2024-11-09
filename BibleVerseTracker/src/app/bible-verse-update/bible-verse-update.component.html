@@ -1,38 +1,35 @@
 <div class="container">
   <h2>Edit Bible Verse</h2>
 
-  <!-- Display loading spinner while data is loading -->
-  <div *ngIf="isLoading" class="spinner-border" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
+  <!-- Bible Verses List -->
+  <ul class="list-group">
+    <li *ngFor="let verse of bibleVerses" class="list-group-item d-flex justify-content-between align-items-center">
+      <span>{{ verse.book }} {{ verse.chapter }}:{{ verse.verseNumber }}</span>
+      <button class="btn btn-sm btn-primary" (click)="loadVerseForEditing(verse)">Edit</button>
+    </li>
+  </ul>
 
-  <!-- Display error message if there is any -->
-  <div *ngIf="errorMessage" class="alert alert-danger">
-    {{ errorMessage }}
+  <!-- Edit Form -->
+  <div *ngIf="selectedVerse" class="mt-4">
+    <h4>Edit Verse Details</h4>
+    <form (ngSubmit)="updateVerse()" #verseForm="ngForm">
+      <div class="form-group">
+        <label for="book">Book</label>
+        <input type="text" class="form-control" id="book" [(ngModel)]="selectedVerse.book" name="book" required>
+      </div>
+      <div class="form-group">
+        <label for="chapter">Chapter</label>
+        <input type="number" class="form-control" id="chapter" [(ngModel)]="selectedVerse.chapter" name="chapter" required>
+      </div>
+      <div class="form-group">
+        <label for="verseNumber">Verse</label>
+        <input type="number" class="form-control" id="verseNumber" [(ngModel)]="selectedVerse.verseNumber" name="verseNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="verseText">Verse Text</label>
+        <textarea class="form-control" id="verseText" [(ngModel)]="selectedVerse.verseText" name="verseText" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="!verseForm.form.valid">Update</button>
+    </form>
   </div>
-
-  <!-- Display success message if update is successful -->
-  <div *ngIf="successMessage" class="alert alert-success">
-    {{ successMessage }}
-  </div>
-
-  <form (ngSubmit)="updateVerse()" #verseForm="ngForm">
-    <div class="form-group">
-      <label for="book">Book</label>
-      <input type="text" class="form-control" id="book" [(ngModel)]="verse.book" name="book" required>
-    </div>
-    <div class="form-group">
-      <label for="chapter">Chapter</label>
-      <input type="number" class="form-control" id="chapter" [(ngModel)]="verse.chapter" name="chapter" required>
-    </div>
-    <div class="form-group">
-      <label for="verseNumber">Verse</label>
-      <input type="number" class="form-control" id="verseNumber" [(ngModel)]="verse.verseNumber" name="verseNumber" required>
-    </div>
-    <div class="form-group">
-      <label for="verseText">Verse Text</label>
-      <textarea class="form-control" id="verseText" [(ngModel)]="verse.verseText" name="verseText" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!verseForm.form.valid">Update</button>
-  </form>
 </div>

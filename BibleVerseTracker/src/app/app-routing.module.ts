@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'bible-verse-list', component: BibleVerseListComponent },
   { path: 'bible-verse-create', component: BibleVerseCreateComponent },
-  { path: 'bible-verse-update/:id', component: BibleVerseUpdateComponent },
+  { path: 'bible-verse-update', component: BibleVerseUpdateComponent },
   { path: 'bible-verse-delete', component: BibleVerseDeleteComponent},
   { path: 'favorites', component: FavoriteComponent }
 ];
