@@ -83,7 +83,7 @@ function BibleVerseCreate() {
             required
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-2">
           Create
         </button>
       </form>

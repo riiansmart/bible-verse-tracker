@@ -4,6 +4,6 @@ const favoriteController = require('../controllers/favoriteController');
 
 router.get('/', favoriteController.getAllFavorites);
 router.post('/', favoriteController.addFavorite);
-router.delete('/:id', favoriteController.removeFavorite);
+router.delete('/:verseId', favoriteController.removeFavorite);
 
 module.exports = router;
