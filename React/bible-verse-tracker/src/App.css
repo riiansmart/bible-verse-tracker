@@ -1,0 +1,49 @@
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Style for hover effect */
+  .bible-verse-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bible-verse-item:hover {
+    background-color: #f1f1f1; /* Light background on hover */
+  }
+  
+  /* Style for selected effect */
+  .bible-verse-selected {
+    font-weight: bolder;
+  }
+  
+  .list-group {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .list-group .list-group-item {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .list-group .list-group-item:hover {
+    background-color: #effdff;
+    border-left-color: #07aac0;
+  }
+  
+  .list-group .list-group-item span {
+    flex: 1;
+    margin-right: 1rem;
+  
+    /* Truncate long verse text */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
